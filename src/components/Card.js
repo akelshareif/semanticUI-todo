@@ -5,11 +5,12 @@ import List from './List';
 class Card extends React.Component {
     
     state = {
-        item: ''
+        item: []
     }
 
     receivedItem = item => {
-        this.setState({item: item});
+        const todo = this.state.item.concat(item);
+        this.setState({item: todo});
     }
 
     render(){

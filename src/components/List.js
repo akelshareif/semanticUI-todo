@@ -1,25 +1,22 @@
 import React from 'react';
 
-class List extends React.Component {
+const List = props => {
 
-    listDisplay = () => {
-        return(
-            <div className='item'>
-                <div className='content'>
-                    {this.props.sent}
-                </div>
+    const items = props.sent;
+    
+    const todoList = items.map((item, index) =>
+        <div key={index} className='item'>
+            <div key={index} className='content'>
+                {item}
             </div>
-        );
-    }
+        </div>
+    );
 
-
-    render(){
-        return(
-            <div className='ui relaxed divided list'>
-                {this.listDisplay()}
-            </div>
-        );
-    }
+    return(
+        <div className='ui relaxed divided list'>
+            {todoList}
+        </div>
+    );
 }
 
 export default List;
