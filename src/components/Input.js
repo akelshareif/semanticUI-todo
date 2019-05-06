@@ -10,15 +10,24 @@ class Input extends React.Component {
         this.setState({data: e.target.value});
     }
 
-    sendData = () => {
+    sendData = e => {
         this.props.retrieve(this.state.data);
+        this.setState({data: ''});
     }
+
+    handleKeypress = e => {
+        if(e.charCode === 13){
+            this.props.retrieve(this.state.data);
+            this.setState({data: ''});
+        }
+    }
+
 
     render(){
         return(
             <div className='ui action input input-size'>
-                <input type='text' placeholder='Add Todo' onChange={this.handleData}/>
-                <button className='ui icon button' onClick={this.sendData}>
+                <input type='text' placeholder='Add Todo' onChange={this.handleData} onKeyPress={this.handleKeypress} value={this.state.data} />
+                <button className='ui icon green button' onClick={this.sendData} >
                     <i className='plus icon' />
                 </button>
             </div>

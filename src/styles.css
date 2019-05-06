@@ -1,5 +1,18 @@
-.top-space{
+body{
+    background: rgb(64, 108, 153);
+}
+
+h1{
+    color: white !important;
+}
+
+.shift-down{
+    margin-top: 0.5rem;
+}
+
+.top-bottom-space{
     margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
 .list-space{
